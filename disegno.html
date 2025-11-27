@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Disegno – Mattia Pagano</title>
+    <link rel="stylesheet" href="disegno.css">
+    <link rel="icon" type="image/png" href="IconD.png">
+</head>
+<body>
+
+<header>
+    <h1>Disegno</h1>
+</header>
+
+<section class="content">
+    <h2>Perché il Disegno è Importante per Me</h2>
+    <p>
+        Il disegno è una delle forme di espressione più sincere che possiedo.  
+        Attraverso il disegno posso trasformare emozioni, idee e pensieri in immagini reali.  
+        Mi aiuta a liberare la mente, a concentrarmi e a migliorare la mia creatività.  
+        È anche un modo per raccontare qualcosa senza usare le parole, lasciando parlare solo le forme e i colori.
+    </p>
+
+   <div class="carousel">
+    <img src="immagini/disegno1.jpg" class="active">
+    <img src="immagini/disegno2.jpg">
+    <img src="immagini/disegno3.jpg">
+    <img src="immagini/disegno4.jpg">
+</div>
+
+</section>
+
+<div class="back-btn">
+    <a href="sito.html">⬅ Torna alla Home</a>
+</div>
+
+<footer>
+    <p>© 2025 - Mattia Pagano</p>
+</footer>
+<script>
+const images = document.querySelectorAll(".carousel img");
+let index = 0;
+
+// funzione per aggiornare l'immagine
+function updateCarousel() {
+    images.forEach(img => img.classList.remove("active"));
+    images[index].classList.add("active");
+}
+
+// evento per la rotella del mouse
+window.addEventListener("wheel", (event) => {
+    if (event.deltaY > 0) {
+        // scroll giù → avanti
+        index = (index + 1) % images.length;
+    } else {
+        // scroll su → indietro
+        index = (index - 1 + images.length) % images.length;
+    }
+    updateCarousel();
+});
+</script>
+
+
+</body>
+</html>
